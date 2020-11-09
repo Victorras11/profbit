@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Report Page{% endblock %}
+
+{% block nav %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Managemet
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="reports/">Reports
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+  </nav>
+
+{% endblock %}
+
+{% block body %} 
+
+  <h1>Top Products</h1>
+
+  <br><br>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Price (UAH)</th>
+        <th>Sold</th>
+      </tr>
+    </thead>
+    <tbody>
+       {% for data in list %} 
+      <tr class="table-default">
+        <th>Product-{{data.product_name}}</th>
+        <th>{{data.product_price}}</th> 
+        <th>{{data.amount}}</th>     
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
